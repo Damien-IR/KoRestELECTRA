@@ -64,7 +64,7 @@ kss의 경우 위키피디아나 뉴스 등과 같은 잘 정제된 문어체에
 ```
 
 ## Benchmark Result
-벤치마크 코드는 monologg 님의 [KoELECTRA](https://github.com/monologg/KoELECTRA/tree/master/finetune)을 약간 수정하여 측정하였습니다.
+벤치마크 코드는 monologg 님의 [KoELECTRA](https://github.com/monologg/KoELECTRA/tree/master/finetune) 의 코드를 약간 수정하여 측정하였습니다.
 
 | Model | NSMC | Naver NER | PAWS | KorNLI | KorSTS | Question Pair | KorQuad |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
