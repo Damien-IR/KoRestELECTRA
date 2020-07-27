@@ -27,9 +27,11 @@ KoRestELECTRA 모델 학습에는 24GB, 6200만 줄 가량의 corpus를 사용�
 [vocab](https://cdn.huggingface.co/damien-ir/ko-rest-electra-discriminator/vocab.txt)의 경우 [monologg](https://github.com/monologg)님의 [KoELECTRA](https://github.com/monologg/KoELECTRA) 모델을 많이 참고하였습니다.
 
 corpus에 사용한 리뷰들은 다양한 사이트에서 다양한 맛집 포스팅들, 댓글, 리뷰들을 모은 것이고, 일부는 긴 내용의 포스팅을 포함하고 있는 경우 또한 많습니다.<br>
-또한 각 문장을 맥락 없이 줄 나눔을 하거나, 중간에 이미지를 넣은 후 다른 이야기를 하는 경우도 많습니다.<br>
-이를 kss 등을 사용하여 줄을 분리하고 모델을 만들어 보았으나, 눈으로 보기에도 corpus 품질이 좋지 않았고, 개인적으로 가지고 있는 맛집 관련 벤치마크나 nsmc에서도 벤치마크 결과가 좋지 않아 폐기하게 되었습니다.<br>
-kss의 경우 위키피디아나 뉴스 등과 같은 잘 정제된 문어체에는 잘 작동하지만, 제가 필요로 하는 맛집 리뷰 관련 태스크에서는 구어체를 기반으로 하고 있기 때문에 발생하는 문제로 보입니다.
+또한 가독성이나 글 배치, 시각화 등을 위해 각 문장을 맥락 없이 줄 나눔을 하거나, 중간에 이미지를 넣은 후 다른 이야기를 하는 경우도 많습니다.<br>
+이를 kss 등을 사용하여 줄을 분리하고 모델을 만들어 보았으나, 눈으로 보기에도 corpus 품질이 좋지 않았고,<br>
+개인적으로 가지고 있는 맛집 관련 벤치마크나 nsmc에서도 벤치마크 결과가 좋지 않아 폐기하게 되었습니다.<br>
+kss의 경우 위키피디아나 뉴스 등과 같은 잘 정제된 문어체에는 잘 작동하지만,<br>
+제가 필요로 하는 맛집 리뷰 관련 태스크에서는 구어체를 기반으로 하고 있기 때문에 발생하는 문제로 보입니다.
 
 또한 맛집 리뷰만을 단독으로 사용하였을 경우 모델의 성능이 NSMC를 제외한 다른 태스크에서 처참한 성적이 나오기 때문에,<br>
 뉴스나 위키피디아 등의 잘 정제된 corpus 를 일부 섞어주니 문어체/구어체, 정제/비정제 데이터셋을 가리지 않고 성능이 향상되었고,<br>
@@ -39,6 +41,8 @@ kss의 경우 위키피디아나 뉴스 등과 같은 잘 정제된 문어체에
 위에서 말씀드린 것처럼, 이 모델은 오직 맛집 리뷰 관련 태스크에 적용하기 위해 학습시킨 모델입니다.<br>
 맛집 리뷰 관련 문장에서 토크나이징을 하는 경우,<br>
 기존의 모델들이 띄어쓰기를 적절히 쓰지 않은 문장, 혹은 신조어 등에서 적절히 토크나이징을 하지 못하는 것을 개선하였습니다.
+
+물론, 대부분의 경우 KoELECTRA 모델이 좋습니다.
 
 ```python
 >>> from transformers import ElectraTokenizer
@@ -60,6 +64,8 @@ kss의 경우 위키피디아나 뉴스 등과 같은 잘 정제된 문어체에
 ```
 
 ## Benchmark Result
+벤치마크 코드는 monologg 님의 [KoELECTRA](https://github.com/monologg/KoELECTRA/tree/master/finetune)을 약간 수정하여 측정하였습니다.
+
 | Model | NSMC | Naver NER | PAWS | KorNLI | KorSTS | Question Pair | KorQuad |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | reviews + wiki | 89.85 | 85.31 | 76.85 | 78.70 | 80.34 | 94.72  | 64.09 / 87.98 |
@@ -67,3 +73,9 @@ kss의 경우 위키피디아나 뉴스 등과 같은 잘 정제된 문어체에
 
 ## Acknowledgement
 TensorFlow Research Cloud(TFRC) 의 지원을 받아 Cloud TPU로 모델을 학습하였습니다.<br>
+
+## Reference
+- [ELECTRA](https://github.com/google-research/electra)
+- [KoELECTRA](https://github.com/monologg/KoELECTRA)
+- [kor_pretrain_LM](https://github.com/enlipleai/kor_pretrain_LM)
+- [simpletransformers](https://github.com/ThilinaRajapakse/simpletransformers)
