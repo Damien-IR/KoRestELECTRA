@@ -69,7 +69,7 @@ kss의 경우 위키피디아나 뉴스 등과 같은 잘 정제된 문어체에
 | Model | NSMC | Naver NER | PAWS | KorNLI | KorSTS | Question Pair | KorQuad |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | reviews + wiki | 89.85 | 85.31 | 76.85 | 78.70 | 80.34 | 94.72  | 64.09 / 87.98 |
-| reviews + wiki + news + etc<br>(Current Model) | 90.38 | TBC | TBC | TBC | TBC | TBC | TBC |
+| reviews + wiki + news + etc<br>(Current Model) | 90.38 | 86.74 | TBC | 80.03 | 80.79 | 94.06 | TBC |
 
 ## Acknowledgement
 TensorFlow Research Cloud(TFRC) 의 지원을 받아 Cloud TPU로 모델을 학습하였습니다.<br>
