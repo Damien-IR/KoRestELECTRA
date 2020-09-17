@@ -79,3 +79,15 @@ TensorFlow Research Cloud(TFRC) 의 지원을 받아 Cloud TPU로 모델을 학�
 - [KoELECTRA](https://github.com/monologg/KoELECTRA)
 - [kor_pretrain_LM](https://github.com/enlipleai/kor_pretrain_LM)
 - [simpletransformers](https://github.com/ThilinaRajapakse/simpletransformers)
+
+## Citations
+```
+@misc{park2020koelectra,
+  author = {Park, Jangwon},
+  title = {KoELECTRA: Pretrained ELECTRA Model for Korean},
+  year = {2020},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/monologg/KoELECTRA}}
+}
+```
