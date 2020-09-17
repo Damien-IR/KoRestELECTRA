@@ -81,7 +81,7 @@ TensorFlow Research Cloud(TFRC) 의 지원을 받아 Cloud TPU로 모델을 학�
 - [simpletransformers](https://github.com/ThilinaRajapakse/simpletransformers)
 
 ## Citations
-```
+```bibtex
 @misc{park2020koelectra,
   author = {Park, Jangwon},
   title = {KoELECTRA: Pretrained ELECTRA Model for Korean},
