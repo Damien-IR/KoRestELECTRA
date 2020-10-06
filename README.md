@@ -80,7 +80,7 @@ TensorFlow Research Cloud(TFRC) 의 지원을 받아 Cloud TPU로 모델을 학�
 - [kor_pretrain_LM](https://github.com/enlipleai/kor_pretrain_LM)
 - [simpletransformers](https://github.com/ThilinaRajapakse/simpletransformers)
 
-## Citations
+## Reference Citations
 [ELECTRA](https://github.com/google-research/electra)
 ```bibtex
 @misc{clark2020electra,
